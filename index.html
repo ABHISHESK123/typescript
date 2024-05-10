@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Grade Calculator</h1>
+        <div>
+            <label for="math">Math Grade:</label>
+            <input type="number" id="math">
+        </div>
+        <div>
+            <label for="physics">Physics Grade:</label>
+            <input type="number" id="physics">
+        </div>
+        <div>
+            <label for="chem">Chemistry Grade:</label>
+            <input type="number" id="chem">
+        </div>
+        <button onclick="calculateGrade()">Calculate</button>
+        <div id="result"></div>
+    </div>
+
+    <script type="text/javascript">
+        function calculateGrade() {
+            const math = parseFloat(document.getElementById('math').value);
+            const physics = parseFloat(document.getElementById('physics').value);
+            const chem = parseFloat(document.getElementById('chem').value);
+
+            const average = (math + physics + chem) / 3;
+            let grade;
+            if (average < 70) {
+                grade = 'C';
+            } else if (average < 90) {
+                grade = 'B';
+            } else {
+                grade = 'A';
+            }
+
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = `Your average grade is: ${average.toFixed(2)}. Your letter grade is: ${grade}`;
+        }
+    </script>
+</body>
+</html>
